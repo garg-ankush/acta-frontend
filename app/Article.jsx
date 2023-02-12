@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { Interface } from "readline"
 
 export default function Article({id, title, summary}) {
     return (
@@ -15,9 +16,6 @@ export default function Article({id, title, summary}) {
                         </h2>
                     </Link>
             </div>
-            
-           
-            
         </div>
     )
 }
