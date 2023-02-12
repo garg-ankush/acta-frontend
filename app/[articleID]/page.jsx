@@ -22,7 +22,7 @@ export default async function ArticleDetail({params}) {
     const {articleID} = params
     
     const articleDetails = await getArticleByID(articleID)
-    const date = await convertISOTimeToDate(articleDetails.publishedAt)
+    const date = await convertISOTimeToDate(articleDetails.published_at)
     
     return (
         <div className="flex bg-white h-screen">
@@ -45,7 +45,7 @@ export default async function ArticleDetail({params}) {
                     <p className="font-semibold">
                         <span>Summary</span>
                     </p>
-                  {articleDetails.description}
+                  {articleDetails.summary}
                 </h1>
 
                 <h1 className="ml-20 mt-4 mr-20">

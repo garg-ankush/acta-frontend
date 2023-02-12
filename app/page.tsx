@@ -18,7 +18,7 @@ export default async function Home() {
           <Article key={article.id}
             id={article.id}
             title={article.title}
-            summary={article.description }
+            summary={article.summary }
           >
           </Article>
       ))}
