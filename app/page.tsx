@@ -38,8 +38,8 @@ export default async function Home() {
     "gray"
   ]
   return (
-    <div className="mx-auto justify-center items-center min-h-screen flex gap-24">
-      <div className="top-0 mt-[-36.5rem] left-0 right 0">
+    <div className="mx-auto min-h-screen mt-[2rem] flex gap-24 justify-center">
+      {/* <div className="top-0 mt-[-36.5rem] left-0 right 0">
         <h1 className="p-3 font-semibold text-5xl">Article of the week</h1>
 
           <MainArticle
@@ -48,18 +48,22 @@ export default async function Home() {
             summary={mainArticle.summary}
             content={mainArticle.content}
           />
-      </div>
-      <div className="top-0 left-0 right 0">
-        <h1 className="p-3 font-semibold text-5xl">Recent Articles</h1>
+      </div> */}
+      <div className="">
+        <h1 className="text-2xl">Recent <span className="font-semibold">Articles</span> </h1>
         <ul className="mx-auto my-auto items-center justify-center flex-row" >
-        
         {articles.map((article: ArticleProps, index: any) => (
-          <Article 
+          <div>
+            <Article
             id={article.id}
             title={article.title}
             summary={article.summary}
             color={colors[index]}
           />
+
+            <div className="h-[0.1rem] items-center justify-center bg-gray-300"></div>
+          </div>
+          
         ))}
       </ul>
       </div>
