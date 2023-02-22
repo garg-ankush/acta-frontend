@@ -32,6 +32,10 @@ async function readingTime(text) {
 
 export default async function ArticleDetail({params}) {
     const {articleID} = params
+
+    if (!articleID) {
+        return
+    }
     
     const articleDetails = await getArticleByID(articleID)
     const date = await convertISOTimeToDate(articleDetails.published_at)
