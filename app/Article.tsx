@@ -2,7 +2,14 @@ import Link from "next/link"
 import { Interface } from "readline"
 import Image from "next/image"
 
-export default async function Article({id, title, summary, color}) {
+export type Props = {
+    id: String,
+    title: String,
+    summary: String,
+    color: String
+}
+
+export default function Article({id, title, summary, color}) {
     const colorPicker = {
         "blue": "bg-cyan-100",
         "red": "bg-rose-200",
