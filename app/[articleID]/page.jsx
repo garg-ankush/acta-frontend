@@ -27,6 +27,9 @@ async function getAudioSourceURL(articleId) {
 }
 
 async function readingTime(text) {
+    if (!text) {
+        return ""
+    }
     const wpm = 200;
     const words = text.trim().split(/\s+/).length;
     return Math.ceil(words / wpm);
