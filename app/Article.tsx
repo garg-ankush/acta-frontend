@@ -6,10 +6,10 @@ export type Props = {
     id: String,
     title: String,
     summary: String,
-    color: String
+    color: any
 }
 
-export default function Article({id, title, summary, color}) {
+export default function Article({id, title, summary, color}: Props) {
     const colorPicker = {
         "blue": "bg-cyan-100",
         "red": "bg-rose-200",
