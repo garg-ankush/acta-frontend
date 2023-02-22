@@ -1,6 +1,4 @@
 import { getArticles } from "@/lib/mongo/articles"
-import { url } from "inspector"
-// import { useState } from "react"
 import Article from './Article'
 import MainArticle from './MainArticle'
 
@@ -38,27 +36,24 @@ export default async function Home() {
       <div className="top-0 mt-[-36.5rem] left-0 right 0">
         <h1 className="p-3 font-semibold text-5xl">Article of the week</h1>
 
-        <MainArticle 
-              key={mainArticle.id || ''}
-              id={mainArticle.id || ''} 
-              title={mainArticle.title || ''}
-              summary={mainArticle.summary  || ''}
-              content={mainArticle.content || ''}
-            >
-          </MainArticle>
+          <MainArticle
+            id={mainArticle.id}
+            title={mainArticle.title}
+            summary={mainArticle.summary}
+            content={mainArticle.content}
+          />
       </div>
       <div className="top-0 left-0 right 0">
         <h1 className="p-3 font-semibold text-5xl">Recent Articles</h1>
         <ul className="mx-auto my-auto items-center justify-center flex-row" >
 
         {articles.map((article, index) => (
-          <Article key={article.id}
+          <Article 
             id={article.id}
             title={article.title}
             summary={article.summary}
             color={colors[index]}
-          >
-          </Article>
+          />
         ))}
       </ul>
       </div>
