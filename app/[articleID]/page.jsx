@@ -37,10 +37,10 @@ export default async function ArticleDetail({params}) {
         return
     }
     
-    const articleDetails = await getArticleByID(articleID)
-    const date = await convertISOTimeToDate(articleDetails.published_at)
-    const sourceURL = await getAudioSourceURL(articleID)
-    const audioDuration = await readingTime(articleDetails.content)
+    const articleDetails = await getArticleByID(articleID) || ""
+    const date = await convertISOTimeToDate(articleDetails.published_at) || ""
+    const sourceURL = await getAudioSourceURL(articleID) || ""
+    const audioDuration = await readingTime(articleDetails.content) || ""
 
     return (
         <div className="flex bg-white h-screen">
