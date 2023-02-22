@@ -15,6 +15,9 @@ async function getArticleByID(articleID) {
 }
 
 async function convertISOTimeToDate(isoTime) {
+    if (!isoTime) {
+        return ""
+    }
     const date = new Date(isoTime)
     return date.toISOString().substring(0, 10);
 }
@@ -38,7 +41,7 @@ export default async function ArticleDetail({params}) {
     }
     
     const articleDetails = await getArticleByID(articleID) || ""
-    const date = await convertISOTimeToDate(articleDetails.published_at) || ""
+    // const date = await convertISOTimeToDate(articleDetails.published_at) || ""
     const sourceURL = await getAudioSourceURL(articleID) || ""
     const audioDuration = await readingTime(articleDetails.content) || ""
 
@@ -50,9 +53,9 @@ export default async function ArticleDetail({params}) {
                     <div className="text-center m-3 flex text-sm items-center justify-center bg-[#E4ECF4] border-2 border-gray text-black h-10 rounded-2xl">
                         <p className="mt-[0.5rem] m-3 justify-center text-center items-center">Climate</p>
                     </div>
-                    <p className="mt-[1rem] text-gray-500">
+                    {/* <p className="mt-[1rem] text-gray-500">
                         {date}
-                    </p>
+                    </p> */}
 
                 </div>
 
