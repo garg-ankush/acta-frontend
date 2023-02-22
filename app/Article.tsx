@@ -1,6 +1,4 @@
 import Link from "next/link"
-import { Interface } from "readline"
-import Image from "next/image"
 
 export type Props = {
     id: String,
@@ -38,7 +36,7 @@ export default function Article({id, title, summary, color}: Props) {
                             <div className="bg-">
                                 <h2 className="mt-2">{summary}</h2>
                             </div>
-                        </Link>
+                    </Link>
                 </div>
                    
             </div>
