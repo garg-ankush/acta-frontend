@@ -2,6 +2,12 @@ import { getArticles } from "@/lib/mongo/articles"
 import Article from './Article'
 import MainArticle from './MainArticle'
 
+type Article = {
+  id: String
+  title: String
+  summary: String
+}
+
 async function fetchArticles() {
   const {articles} = await getArticles()
   
@@ -47,7 +53,7 @@ export default async function Home() {
         <h1 className="p-3 font-semibold text-5xl">Recent Articles</h1>
         <ul className="mx-auto my-auto items-center justify-center flex-row" >
 
-        {articles.map((article, index) => (
+        {articles.map(({article, index}: {article: Article, index: string}) => (
           <Article 
             id={article.id}
             title={article.title}
