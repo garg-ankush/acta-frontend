@@ -38,14 +38,14 @@ export default async function ArticleDetail({params}) {
     }
     
     const articleDetails = await getArticleByID(articleID)
-    // const date = await convertISOTimeToDate(articleDetails.published_at)
-    // const sourceURL = await getAudioSourceURL(articleID)
-    // const audioDuration = await readingTime(articleDetails.content)
+    const date = await convertISOTimeToDate(articleDetails.published_at)
+    const sourceURL = await getAudioSourceURL(articleID)
+    const audioDuration = await readingTime(articleDetails.content)
 
     return (
         <div className="flex bg-white h-screen">
             {/* Title */}
-            {/* <div className="bg-white rounded-xl">
+            <div className="bg-white rounded-xl">
                 <div className="py-3 m-3 ml-20 flex">
                     <div className="text-center m-3 flex text-sm items-center justify-center bg-[#E4ECF4] border-2 border-gray text-black h-10 rounded-2xl">
                         <p className="mt-[0.5rem] m-3 justify-center text-center items-center">Climate</p>
@@ -84,7 +84,7 @@ export default async function ArticleDetail({params}) {
                     {articleDetails.content}
                 </h1>
                 
-            </div> */}
+            </div>
         
 
             {/* Area for question and answering */}
