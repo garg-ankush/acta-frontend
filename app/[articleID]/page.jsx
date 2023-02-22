@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { getArticles } from "@/lib/mongo/articles"
+import AudioPlayer from '../../components/AudioPlayer'
 
 async function getArticleByID(articleID) {
     const {articles} = await getArticles()
@@ -18,12 +19,25 @@ async function convertISOTimeToDate(isoTime) {
     return date.toISOString().substring(0, 10);
 }
 
+async function getAudioSourceURL(articleId) {
+    return `https://dktmc4e7l08en.cloudfront.net/${articleId}.mp3`
+}
+
+async function readingTime(text) {
+    const wpm = 200;
+    const words = text.trim().split(/\s+/).length;
+    return Math.ceil(words / wpm);
+  }
+
+
 export default async function ArticleDetail({params}) {
     const {articleID} = params
     
     const articleDetails = await getArticleByID(articleID)
     const date = await convertISOTimeToDate(articleDetails.published_at)
-    
+    const sourceURL = await getAudioSourceURL(articleID)
+    const audioDuration = await readingTime(articleDetails.content)
+
     return (
         <div className="flex bg-white h-screen">
             {/* Title */}
@@ -37,6 +51,17 @@ export default async function ArticleDetail({params}) {
                     </p>
 
                 </div>
+
+                <div className="justify-center bg-gradient-to-r  from-indigo-500 via-purple-500 to-pink-500 flex w-96 h-16 ml-20 mt-[-1rem] mb-3 rounded-xl gap-4">
+                        <div className="ml-3 justify-center items-center mt-[0.7rem]">
+                            <AudioPlayer audioSourceURL={sourceURL}/>
+                        </div>
+
+                        <div className="">
+                            <h1 className="font-semibold text-[#FFFFFF] text-2xl mt-[1.1rem]">{audioDuration}-minute listen</h1>
+                        </div>
+                </div>
+                
                 <p className="font-semibold ml-20 mr-20">
                  {articleDetails.title}
                 </p>
