@@ -3,11 +3,10 @@ import Link from "next/link"
 export type Props = {
     id: String,
     title: String,
-    summary: String,
-    color: any
+    summary: String
 }
 
-export default function Article({id, title, summary, color}: Props) {
+export default function Article({id, title, summary}: Props) {
 
     return (
         <div className="bg-white w-[300px] md:w-[800px] mx-auto rounded-2xl m-2 border-2 border-white">
