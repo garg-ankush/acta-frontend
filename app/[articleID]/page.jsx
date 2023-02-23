@@ -3,8 +3,9 @@ import { getArticles } from "@/lib/mongo/articles"
 import AudioPlayer from '../../components/AudioPlayer'
 
 async function getArticleByID(articleID) {
-    const {articles} = await getArticles()
+    const articles = await getArticles()
 
+    // get the article by id
     let articleDetails
     for (let i = 0; i < articles.length; i++) {
         if (articles[i].id === articleID) {
