@@ -24,7 +24,7 @@ async function convertISOTimeToDate(isoTime) {
 }
 
 async function getAudioSourceURL(articleId) {
-    return `https://dktmc4e7l08en.cloudfront.net/${articleId}.mp3`
+    return `${process.env.AUDIO_SOURCE}/${articleId}.mp3`
 }
 
 async function readingTime(text) {
